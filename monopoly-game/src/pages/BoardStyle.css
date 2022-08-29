@@ -1,0 +1,23 @@
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .inner {
+    margin-left:30%;
+    margin-right: auto;
+    width: 60vw;
+    height: 40vw;
+    /* background-color: red; */
+    box-shadow: rgba(214, 89, 6, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(233, 13, 6, 0.877) 0px -2px 6px 0px inset;
+
+  }
