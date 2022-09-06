@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+
+.overLayingPage{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(117, 113, 113, 0.562);
+    z-index: 10;
+}
+
+.createForm{
+    position: fixed;
+    top: 20%;
+    left: 23%;
+    width: 50vw;
+    height: 380px;
+    background-color: white;
+    z-index: 10;
+}
+.closeIcon{
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    cursor: pointer;
+    font-size: 22px;
+}
+.formContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.rowInputs{
+    display: flex;
+    flex-direction: row;
+    padding: 19px;
+}
+.rowInputs label{
+    /* margin-right: 20px; */
+    width: 100px;
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+.descriptionStyle{
+width: 80%;
+height: 50px;
+word-wrap: break-word;
+word-break: break-all;
+overflow-wrap: break-word;
+}
+.rowInputs input{
+    border-width: 1px;
+    border-radius: 3px;
+}
+.submitBtn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+     margin: 20px;
+     margin-right: 40px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#display-image{
+    width: 400px;
+    height: 225px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+  }

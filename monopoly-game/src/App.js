@@ -1,15 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
-import BoardingGame from '../src/pages/BoardingGame'
-import SideBar from './components/SideBar'
+import Campaign from './pages/Campaign'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WorkSpaces from './pages/WorkSpaces.js'
 
 function App() {
-  return (
-    <div className="App">
-      <SideBar/>
-      <BoardingGame/>
-    </div>
-  );
+
+
+  return(
+  <>
+  <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WorkSpaces />}></Route>
+        <Route path="/Campaign/:workspaceId" element={<Campaign />}></Route>
+      </Routes>
+    </BrowserRouter>
+
+  </>
+  )
 }
 
-export default App;
+export default App

@@ -175,3 +175,7 @@ font-size: 9px;
     display: flex;
     flex-direction: row;
   }
+  .windowPage{
+    /* z-index: -1; */
+    /* background-image: url(''); */
+  }

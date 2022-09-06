@@ -1,0 +1,59 @@
+
+.availableWorkspaces{
+position: relative;
+margin:30px;
+
+}
+.connectedLine{
+    position:absolute;
+    height:80px;
+    left: 0px  ;
+    bottom: -55px;
+    background-color: rgb(43, 41, 41);
+    width: 5px;
+    border-radius: 510px;
+    /* bottom: 0; */
+}
+
+.environment{
+    width: 100%;
+    height: 500px;
+    background-color: rgb(224, 217, 207);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px grey;
+    background: url('https://cdn.dribbble.com/users/79571/screenshots/11289385/media/eeff533f077bb8b4624ee4b6480343ac.png') no-repeat fixed ;
+
+    /* background-image: none; */
+    /* background-image: ; */
+}
+.fabb{
+    z-index: 1 !important;
+
+}
+.addIcon{
+    padding-top: 15x;
+}
+.primary{
+    color: rgb(6, 12, 104);
+    /* background-color: rgb(6, 12, 104); */
+
+    
+    }
+    .secondary{
+color: rgb(44, 2, 41);
+
+}
+.warning{
+    color: rgb(180, 58, 9);
+    
+    }
+
+    .primary1{
+        background-color: rgb(6, 12, 104);
+        }
+        .secondary1{
+    background-color: rgb(44, 2, 41);
+    }
+    .warning1{
+        background-color: rgb(180, 58, 9);
+        }
