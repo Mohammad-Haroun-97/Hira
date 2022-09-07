@@ -11,7 +11,7 @@ function App() {
   <>
   <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WorkSpaces />}></Route>
+        <Route path="/Hira" element={<WorkSpaces />}></Route>
         <Route path="/Campaign/:workspaceId" element={<Campaign />}></Route>
       </Routes>
     </BrowserRouter>

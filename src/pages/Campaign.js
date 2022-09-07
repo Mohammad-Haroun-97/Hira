@@ -237,7 +237,7 @@ function addTaskHandler() {
   return(
     <>
     <div className='windowPage'>
-    <div style={{cursor:'pointer',display:'block',margin:'auto',width: '10%'}} onClick={()=>navigate('/')}>
+    <div style={{cursor:'pointer',display:'block',margin:'auto',width: '10%'}} onClick={()=>navigate('/Hira')}>
     <h1 className='projectTitle'>Hira</h1>
     </div>
     <div className='createDiv'>
