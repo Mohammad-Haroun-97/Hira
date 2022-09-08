@@ -34,7 +34,7 @@ if (allWorkspaces.data[i].workspaceID===workspaceId) {
     let userExist= allWorkspaces.data[i].workspaceUsers.find((item)=>item.username===username)
     setIsAuthinticated(!(allWorkspaces.data[i].workspaceKey===workspaceKey && userExist))
   if (  allWorkspaces.data[i].workspaceKey===workspaceKey && userExist ) {
-navigate(`/Campaign/${workspaceId}`)
+navigate(`/Campaign/:${workspaceId}`)
     
   }
    }
