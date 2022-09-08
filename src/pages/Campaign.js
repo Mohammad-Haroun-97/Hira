@@ -9,6 +9,7 @@ import { useParams,useNavigate } from "react-router-dom";
 function Campaign() {
   const navigate=useNavigate()
   const {workspaceId} = useParams();
+  console.log("7777777777777777",workspaceId);
   const [backlogItems,setBacklogItems]=useState([])
   const [toDoItems,setToDoItems]=useState([])
   const [onProgressItems,setOnProgressItems]=useState([])
