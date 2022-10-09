@@ -9,10 +9,25 @@ import { useNavigate } from 'react-router-dom'
 import CampaignAuthPop from '../components/campaignAuthPop'
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import { createTheme } from '@mui/material/styles';
+import { red,grey,blueGrey } from '@mui/material/colors';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
 
 
 
-
+const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 // https://630c9dd853a833c534300ae2.mockapi.io/Workspaces
 function WorkSpaces() {
     const navigate = useNavigate()
@@ -24,6 +39,26 @@ const [openWorkspace,setOpenWorkspace]=useState(false)
 const [workspaceAuth,setWorkspaceAuth]=useState(false)
 const [workspaceId,setWorkspaceId]=useState(false)
 const [workspaceType,setWorkspaceType]=useState('')
+
+
+
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -72,11 +107,7 @@ function campaignHandler(payload) {
     setWorkspaceId(payload)
     workspaceAuthHandler()
 
-return(
-<>
 
-</>
-)
 
     
 // navigate(`/Campaign/${payload}`)
@@ -87,11 +118,131 @@ return(
         {/* <Container maxWidth="sm"> */}
         { workspaceAuth &&<CampaignAuthPop workspaceId={workspaceId} workspaceAuthHandler={workspaceAuthHandler}/>}
         {openWorkspace && <CreateWorkSpaceModel openCreateWorkspace={openCreateWorkspace} workspaceType={workspaceType} /> }
-        <h1 className='projectTitle'>Hira</h1>
-<Container  maxWidth="lg">
-        <Grid container spacing={2}>
+        <AppBar xs={{mb:5}} position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <AdbIcon xs={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/Hira"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            Hira
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            LOGO
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+    <Container  maxWidth="lg">
+        <Grid container spacing={2} sx={{mt:9}}>
   <Grid item xs={4}>
-    <h2 style={{textAlign:'center',fontFamily:"cursive"}}>Work Environments <BsFillPlusSquareFill onClick={()=>{
+    <h2 className='projectTitle env'>Work Environments <BsFillPlusSquareFill onClick={()=>{
 openCreateWorkspace() 
 setWorkspaceType('work')
 }}  className='addIcon'/> </h2>
@@ -100,9 +251,11 @@ setWorkspaceType('work')
             {workWorkspaces.map((item,index)=>
             <div>
             <div className='availableWorkspaces'>  
-            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px"}} color="primary">
+            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px"
+  ,backgroundColor:grey[900]  }} color= "secondary" >
             <AirplayIcon sx={{ position:'absolute',left:"20px" }} />
-            {item.workspaceName}
+            {item.workspaceName.length >12 && item.workspaceName.slice(0,12)+ "..." }
+            {item.workspaceName.length <=12 &&item.workspaceName}
             </Fab>
             <div className='connectedLine primary1'></div>
             </div>
@@ -118,7 +271,7 @@ setWorkspaceType('work')
 
   </Grid>
   <Grid item xs={4}>
-  <h2 style={{textAlign:'center',fontFamily:"cursive"}}>Education Environments<BsFillPlusSquareFill onClick={()=>{
+  <h2 className='projectTitle env'>Education Environments<BsFillPlusSquareFill onClick={()=>{
 openCreateWorkspace() 
 setWorkspaceType('education')
 }}  className='addIcon'/> </h2>
@@ -127,9 +280,11 @@ setWorkspaceType('education')
             {educationWorkspaces.map((item,index)=>
             <div>
             <div className='availableWorkspaces'>  
-            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px"}} color="secondary">
+            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px",backgroundColor:grey[700]}} color="secondary">
             <AirplayIcon sx={{ position:'absolute',left:"20px" }} />
-            {item.workspaceName}
+            {item.workspaceName.length >12 && item.workspaceName.slice(0,12)+ "..." }
+            {item.workspaceName.length <=12 &&item.workspaceName}
+
             </Fab>
             <div className='connectedLine secondary1'></div>
             </div>
@@ -145,7 +300,7 @@ setWorkspaceType('education')
 
   </Grid>
   <Grid item xs={4}>
-  <h2 style={{textAlign:'center',fontFamily:"cursive"}}>Home Environments <BsFillPlusSquareFill onClick={()=>{
+  <h2 className='projectTitle env'>Home Environments <BsFillPlusSquareFill onClick={()=>{
 openCreateWorkspace() 
 setWorkspaceType('home')
 }} className='addIcon'/></h2>
@@ -154,9 +309,10 @@ setWorkspaceType('home')
             {homeWorkspaces.map((item,index)=>
             <div>
             <div className='availableWorkspaces'>  
-            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px"}} color="warning">
+            <Fab onClick={()=>campaignHandler(item.workspaceID)} className="fabb" sx={{ width:"200px",backgroundColor:blueGrey[500]}} color="secondary">
             <AirplayIcon sx={{ position:'absolute',left:"20px" }} />
-            {item.workspaceName}
+            {item.workspaceName.length >12 && item.workspaceName.slice(0,11)+ "..." }
+            {item.workspaceName.length <=12 &&item.workspaceName}
             </Fab>
             <div className='connectedLine warning1'></div>
             </div>

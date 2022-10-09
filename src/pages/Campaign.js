@@ -4,6 +4,19 @@ import {useEffect,useState} from 'react'
 import axios from 'axios'
 import CreateTaskForm from '../components/overlayingModel'
 import { useParams,useNavigate } from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import {Chip,Stack} from '@mui/material';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 
 function Campaign() {
@@ -247,13 +260,26 @@ function addTaskHandler() {
        </div>
      {addTaskFlag &&  <CreateTaskForm workspaceId={workspaceId} addTaskHandler={addTaskHandler}/>}
 <div className='parent'>
-<div className='BacklogCol' >
+<div className='BacklogCol'  >
   <div className='adv-round-rectangle Backlog'><h2 className='headings'>Backlog</h2></div>
-{backlogItems?.map(item=>
-<div key={item.taskId} id={item.taskId}  draggable={true} className='cardsBacklog'> 
-<h5>{item.title}</h5>
-<h5>{item.status}</h5>
-<h5>{item.taskId}</h5>
+  {backlogItems?.map(item=>
+<div key={item.taskId} id={item.taskId}   draggable={true} className='cardsBacklog'> 
+<div className='content'>
+<h5 className='title'>{item.title.toUpperCase() }</h5>
+<Stack >
+<p style={{textAlign:'center',fontFamily:"monospace"}} >Assigned To :</p>
+<Stack direction='row'  >
+{item.assignedUsers?.map((assignee,index)=> { 
+  return ( <Stack direction='row' >
+  {index<1 && <Chip avatar={<Avatar>{assignee.slice(0,1).toUpperCase()}</Avatar>} label={item.assignedUsers.length >1 ?`${assignee} + ${item.assignedUsers.length} `: assignee}>
+  </Chip> }
+  </Stack>
+  )}
+  )}
+</Stack>
+</Stack>
+</div>
+<p style={{paddingLeft:"15px",color:'#5F6F94'}}>{item.description.slice(0,34)+ " ..." }</p>
 </div>
 )}
      </div>
@@ -261,41 +287,73 @@ function addTaskHandler() {
      <div className='adv-round-rectangle ToDo'><h2 className='headings'>To Do</h2></div>
 
      {toDoItems?.map(item=>
-<div key={item.taskId} id={item.taskId}  draggable={true} className='cardsToDo'> 
-<h5>{item.title}</h5>
-<h5>{item.status}</h5>
-<h5>{item.taskId}</h5>
-
+<div key={item.taskId} id={item.taskId}   draggable={true} className='cardsToDo'> 
+<div className='content'>
+<h5 className='title'>{item.title.toUpperCase() }</h5>
+<Stack >
+<p style={{textAlign:'center',fontFamily:"monospace"}} >Assigned To :</p>
+<Stack direction='row'  >
+{item.assignedUsers?.map((assignee,index)=> { 
+  return ( <Stack direction='row' >
+  {index<1 && <Chip avatar={<Avatar>{assignee.slice(0,1).toUpperCase()}</Avatar>} label={item.assignedUsers.length >1 ?`${assignee} + ${item.assignedUsers.length} `: assignee}>
+  </Chip> }
+  </Stack>
+  )}
+  )}
+</Stack>
+</Stack>
+</div>
+<p style={{paddingLeft:"15px",color:'#5F6F94'}}>{item.description.slice(0,34)+ " ..." }</p>
 </div>
 )}
       </div>
       <div className='onProgressCol'>
       <div className='adv-round-rectangle Progress'><h2 className='headings'>On Progress</h2></div>
 
-      {onProgressItems?.map(item=>
+{onProgressItems?.map(item=>
 <div key={item.taskId} id={item.taskId}   draggable={true} className='cardsOnProgress'> 
 <div className='content'>
 <h5 className='title'>{item.title.toUpperCase() }</h5>
-
-  <div className='statusCircle'> </div>
-<p  className='status'>{item.status.slice(0,2) + " "+ item.status.slice(2).toLowerCase()}</p>
-
-
+<Stack >
+<p style={{textAlign:'center',fontFamily:"monospace"}} >Assigned To :</p>
+<Stack direction='row'  >
+{item.assignedUsers?.map((assignee,index)=> { 
+  return ( <Stack direction='row' >
+  {index<1 && <Chip avatar={<Avatar>{assignee.slice(0,1).toUpperCase()}</Avatar>} label={item.assignedUsers.length >1 ?`${assignee} + ${item.assignedUsers.length} `: assignee}>
+  </Chip> }
+  </Stack>
+  )}
+  )}
+</Stack>
+</Stack>
 </div>
-
-
+<p style={{paddingLeft:"15px",color:'#5F6F94'}}>{item.description.slice(0,34)+ " ..." }</p>
 </div>
-)}
-      
-      </div>
+)} </div>
+
+
+
       <div className='doneCol'>
       <div className='adv-round-rectangle Done'><h2 className='headings'>Done</h2></div>
 
-{doneItems?.map(item=>
-<div key={item.taskId} id={item.taskId}  draggable={true} className='cardsDone'> 
-<h5>{item.title}</h5>
-<h5>{item.status}</h5>
-<h5>{item.taskId}</h5>
+      {doneItems?.map(item=>
+<div key={item.taskId} id={item.taskId}   draggable={true} className='cardsDone'> 
+<div className='content'>
+<h5 className='title'>{item.title.toUpperCase() }</h5>
+<Stack >
+<p style={{textAlign:'center',fontFamily:"monospace"}} >Assigned To :</p>
+<Stack direction='row'  >
+{item.assignedUsers?.map((assignee,index)=> { 
+  return ( <Stack direction='row' >
+  {index<1 && <Chip avatar={<Avatar>{assignee.slice(0,1).toUpperCase()}</Avatar>} label={item.assignedUsers.length >1 ?`${assignee} + ${item.assignedUsers.length} `: assignee}>
+  </Chip> }
+  </Stack>
+  )}
+  )}
+</Stack>
+</Stack>
+</div>
+<p style={{paddingLeft:"15px",color:'#5F6F94'}}>{item.description.slice(0,34)+ " ..." }</p>
 </div>
 )}
       </div>

@@ -36,12 +36,12 @@ function CreateForm(props) {
 
 
   useEffect(() => {
-getUsers()
-
+    getUsers()
   }, [])
  async function getUsers() {
     let allTasks= await axios.get('https://630c9dd853a833c534300ae2.mockapi.io/users')
     let usersForWorkspace=[]
+
 
 for (let i = 0; i < allTasks.data.length; i++) {
 if (allTasks.data[i].workspaces ===workspaceId) {
@@ -82,10 +82,9 @@ setAssignedUsers(usersForWorkspace)
 
   async function addTaskSubmiter(e) {
     e.preventDefault()
-    console.log("statusstatusstatus",status);
 
     try {
-        await axios.post('https://630c9dd853a833c534300ae2.mockapi.io/tasks',{status,title,assignedUsers,description,workspaceId,taskId:uuidv4()})
+        await axios.post('https://630c9dd853a833c534300ae2.mockapi.io/tasks',{status,title,assignedUsers:selectedUsers,description,workspaceId,taskId:uuidv4()})
         addTaskHandler()
     } catch (error) {
         console.log("errorerror",error);
@@ -161,7 +160,7 @@ setAssignedUsers(usersForWorkspace)
         </Select>
       </FormControl>
      {assignedUsers?.length ===0 &&   <div>
-        <p>Please selected users</p>
+        <p>Please select users</p>
       </div>}
               </div>
               <div className="rowInputs">

@@ -5,68 +5,87 @@
 .parent{
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
+  position: absolute;
+  top:110px;
   width: 100%;
+  height: 800px;
 }
 
 .doneCol{
-width: 20%;
-height: 80vh;
+width: 24%;
+height: 650px;
 background-color: #f7f4f4;
 border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-margin: auto;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+/* border: 1px solid #f7a16c ; */
+/* margin: auto; */
 }
 .onProgressCol{
-  width: 20%;
-  height: 80vh;
-background-color: #f7f4f4;
+  width: 24%;
+  height: 650px;
+  background-color: #f7f4f4;
 border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-margin: auto;
+/* margin: auto; */
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+/* border: 1px solid #fcdb58 ; */
 
 }
 .toDoCol{
-width: 20%;
-height: 80vh;
+position: relative;
+width: 24%;
+height: 650px;
 background-color: #f7f4f4;
 border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-margin: auto;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+/* border: 1px solid #92f7f2 ; */
+/* margin: auto; */
 
 }
 .BacklogCol{
-  width: 20%;
-  height: 80vh;
-background-color: #f7f4f4;
+  width: 24%;
+  height: 650px;
+  background-color: #f7f4f4;
 border-radius: 5px;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-margin: auto;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+/* border: 0.1px solid #637469 ; */
+
 
 }
 .cardsBacklog{
   width: 90%;
-  height: 100px;
-  background-color: #94B49F;
+  height: 120px;
+  border-radius: 5px;
+  border:solid 1px;
+  border-color: #3d3a39;
   margin: auto;
   margin-top: 20px;
-  border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: rgb(255, 254, 254);
 }
 
 .cardsToDo{
   width: 90%;
-  height: 100px;
-  background-color: #CEE5D0;
+  height: 120px;
+  border-radius: 5px;
+  border:solid 1px;
+  border-color: #4eb5f1;
   margin: auto;
   margin-top: 20px;
-  border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: rgb(255, 254, 254);
 }
 
 .cardsOnProgress{
   width: 90%;
-  height: 80px;
+  height: 120px;
   border-radius: 5px;
   border:solid 1px;
   border-color: #f3c81c;
@@ -77,24 +96,26 @@ margin: auto;
 
 .cardsDone{
   width: 90%;
-  height: 100px;
-  background-color: #ECB390;
+  height: 120px;
+  border-radius: 5px;
+  border:solid 1px;
+  border-color: #f1674e;
   margin: auto;
   margin-top: 20px;
-  border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: rgb(255, 254, 254);
 }
 
 
 .adv-round-rectangle{
-  border-width: 2px 12px 2px 12px;
+  border-width: 2px 6px 2px 6px;
   border-style: double;
-  border-color: #738b7c;
-  border-radius:40px 40px 60px 60px;
+  border-color: #58575ae5;
+  border-radius:60px 40px 60px 60px;
   -moz-border-radius:40px 40px 60px 60px;
   -webkit-border-radius:40px 40px 60px 60px;
   height: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
    }  
    .headings{
     font-family: 'Qwitcher Grypen', cursive;
@@ -104,18 +125,7 @@ margin: auto;
     margin: auto;
 
    }
-   .Backlog{
-    border-color: #637469;
-   }
-   .ToDo{
-    border-color: #92f7f2;
-  }
-  .Progress{
-    border-color: rgb(252, 219, 88);
-  }
-  .Done{
-    border-color: #f7a16c;
-  }
+
   .projectTitle{
     text-align: center;
     font-family: 'Alfa Slab One', cursive;
@@ -153,10 +163,10 @@ font-size: 9px;
 
   .addIcon{
   font-size: 30px;
-  color: rgb(62, 136, 13);
+  color: #6a1df8;
   cursor: pointer;
-  padding-top:15px;
-  margin-left: 20px;
+  /* padding-top:15px;
+  margin-left: 20px; */
   }
 
   .addIcon :hover{
